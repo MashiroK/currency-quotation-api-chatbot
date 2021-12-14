@@ -1,0 +1,25 @@
+{
+  "name": "currency-quotation-api-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot using an API for currency quotation on-the-go",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MashiroK/currency-quotation-api-chatbot.git"
+  },
+  "author": "Jose Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MashiroK/currency-quotation-api-chatbot/issues"
+  },
+  "homepage": "https://github.com/MashiroK/currency-quotation-api-chatbot#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
