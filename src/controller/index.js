@@ -7,19 +7,27 @@ const intents = async (req, res) => {
         
         //DEFAULT WELCOME INTENT START
         case 'Default Welcome Intent':
-            let session = req.body.session //Gets user session (How to get userid?)
-            try {
-                const sid = await Auth.findOne( { //Find session in db
-                    session : req.body.session
-                } ).orFail() //Throws error if not found
+            let platform = req.body.originalDetectIntentRequest.source
+            if(platform === 'line') {
+                //Get userId from Line payload
+                let userId = req.body.originalDetectIntentRequest.payload.data.source.userId
+                try {
+                    const uid = await Auth.findOne( { //Find uid in db
+                        userId : userId
+                    } ).orFail() //Throws error if not found
 
-                if(sid.session === session) //Could also check if sid is not null
-                    res.json({ "fulfillmentText": "Olá! Vi aqui que voce já usou nosso sistema antes, bem vindo novamente!" })
+                    if(uid.userId === userId) //Could also check if uid is not null?
+                        res.json({ "fulfillmentText": "Olá! Vi aqui que voce já usou nosso sistema antes, bem vindo novamente!"})
 
-            } catch (error) { //Response if session does not exist!
-                const sidAuth = Auth.create(req.body) //Creates entry with current session
-                res.json({ "fulfillmentText": "Olá! Bem vindo ao sistema de conversão de moedas!" })
-            }         
+                } catch (error) { //Response if uid does not exist!
+                    const sidAuth = Auth.create(req.body.originalDetectIntentRequest.payload.data.source) //Creates entry with userId
+                    res.json({ "fulfillmentText": "Olá! Bem vindo ao sistema de conversão de moedas!" })
+                }
+            }
+            else {
+                //Default message if not on LINE
+                res.json({ "fulfillmentText": "Oi! Bem vindo ao sistema de conversão de moedas!" })
+            }
         break;
         //DEFAULT WELCOME INTENT END
 

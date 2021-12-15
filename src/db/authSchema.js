@@ -1,8 +1,8 @@
 const mongoose = require('../db')
 
-    //See mongodb - json session for dialogflow
+    //See mongodb - json userId for dialogflow
     const authSchema = new mongoose.Schema({
-        session: {
+        userId: {
             type: String,
             require: true
         }
