@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/MashiroK/currency-quotation-api-chatbot#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "mongoose": "^6.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
