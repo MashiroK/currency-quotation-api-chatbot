@@ -21,6 +21,6 @@ AwesomeAPI: Foi a api sugerida no projeto, contém várias rotas de cotação de
 
 ## Integração
   
-O bot está integrado com o LINE, e para acessar ele, é necessário entrar no aplicativo e procurar pelo ID @660sxgbe
-O bot também tem integração com o Telegram, que pode ser acessada via [este link](t.me/MoneyQuotationBot)
-Por fim, o deploy do webhook está hospedado em https://chatbot-webhook-quotation.herokuapp.com/webhook e aceita operações de POST para o chatbot.
+- O bot está integrado com o LINE, e para acessar ele, é necessário entrar no aplicativo e procurar pelo ID @660sxgbe
+- O bot também tem integração com o Telegram, que pode ser acessada via [este link](t.me/MoneyQuotationBot)
+- Por fim, o deploy do webhook está hospedado em https://chatbot-webhook-quotation.herokuapp.com/webhook e aceita operações de POST para o chatbot.
