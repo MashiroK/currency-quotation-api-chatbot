@@ -24,6 +24,22 @@ const intents = async (req, res) => {
                     const sidAuth = Auth.create(req.body.originalDetectIntentRequest.payload.data.source) //Creates entry with userId
                     res.json({ "fulfillmentText": "Olá! Bem vindo ao sistema de conversão de moedas!" })
                 }
+            } else if(platform === 'telegram') {
+                const userId = req.body.originalDetectIntentRequest.payload.data.from.id
+                const name = req.body.originalDetectIntentRequest.payload.data.from.first_name
+                
+                try {
+                    const uid = await Auth.findOne( {
+                        userId : userId
+                    } ).orFail()
+
+                    if(uid.userId === userId)
+                        res.json({ "fulfillmentText": `Olá, ${name}! Vi aqui que voce já usou nosso sistema antes, bem vindo!`})
+
+                } catch (error) {
+                    const sidAuth = Auth.create(req.body.originalDetectIntentRequest.payload.data.source)
+                    res.json({ "fulfillmentText": "Olá! Bem vindo ao sistema de conversão de moedas!" })
+                }
             }
             else {
                 //Default message if not on LINE
