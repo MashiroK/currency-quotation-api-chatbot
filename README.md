@@ -2,6 +2,8 @@
 
 ## Diário de bordo
 
+Desenvolvi a aplicação começando pelo servidor e suas rotas. Neste projeto estruturei de forma mais organizada o desenvolvimento, de forma mais sequencial. Meu segundo passo foi tratar a captura do ID do usuário. Primeiramente utilizei a sessão do payload do dialogflow, porém posteriormente consegui implementar utilizando o payload do line, pegando o id do usuário para sua identificação. O ID é salvo no Mongo, que também foi implementado nessa etapa. Com a base do projeto solidificada, passei a desenvolver as intents. Estudei a API a ser consumida e suas rotas, e decidi fazer o projeto de forma mais dinâmica, visto a possibilidade de utilizar template strings para capturar a API como um todo. Aqui foi onde gastei a maior parte do tempo no projeto, desenvolvendo a lógica para a captação dinâmica. Feito isso, tratei dos outros requerimentos, como a Intent de ajuda, e duas formas de fazer a cotação, por moeda, e geral, sendo essa ultima a impressão das moedas obrigatórias no requerimento do projeto. Por fim, corrigi alguns detalhes que a API não trata direito via código, como o valor do Bitcoin mal denotado, e também refinei e estruturei o código nos momentos finais prévios à entrega.
+
 ## Documentação
 
 - Aplicação em NodeJS, requer que este esteja instalado na máquina/container utilizado. 
